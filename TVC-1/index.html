@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>바다앞에 | 홈 - 오늘 갈 수 있는 바다를 한눈에</title>
+  <meta name="description" content="전국 해수욕장과 스노클링 장소의 운영 상태, 해양 환경, 안전 정보, 편의시설을 실시간 확인하고 오늘 방문할 최적의 바다를 찾아보세요.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- 본문 바로가기 -->
+  <a href="#main-content" class="skip-link">본문 바로가기</a>
+
+  <!-- 상단 헤더 & PC 네비게이션 -->
+  <header class="site-header">
+    <div class="site-header__container">
+      <a href="index.html" class="site-header__brand" aria-label="바다앞에 홈">
+        <span class="site-header__symbol" aria-hidden="true">
+          <svg viewBox="0 0 28 20" fill="none" class="site-header__svg">
+            <path d="M2 14C5.5 14 7.5 10 11 10C14.5 10 16.5 14 20 14C23.5 14 24.5 12 26 10" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
+            <path d="M2 6C5.5 6 7.5 2 11 2C14.5 2 16.5 6 20 6C23.5 6 24.5 4 26 2" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="site-header__title">바다앞에</span>
+        <span class="site-header__tagline">오늘 갈 수 있는 바다를 한눈에</span>
+      </a>
+
+      <!-- PC/태블릿 상단 메뉴 -->
+      <nav class="site-nav" aria-label="주요 메뉴">
+        <ul class="site-nav__list">
+          <li class="site-nav__item"><a href="index.html" class="site-nav__link site-nav__link--active" aria-current="page">홈</a></li>
+          <li class="site-nav__item"><a href="map.html" class="site-nav__link">지도</a></li>
+          <li class="site-nav__item"><a href="saved.html" class="site-nav__link">저장·비교</a></li>
+          <li class="site-nav__item"><a href="field.html" class="site-nav__link">현장</a></li>
+          <li class="site-nav__item"><a href="my.html" class="site-nav__link">MY</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 메인 콘텐츠 영역 -->
+  <main id="main-content" class="main-wrapper">
+    <!-- 헤더 섹션 -->
+    <header class="page-header">
+      <span class="page-header__eyebrow">TODAY'S OCEAN STATUS</span>
+      <h1 class="page-header__title">오늘 갈 수 있는 바다 찾기</h1>
+      <p class="page-header__desc">운영·해양 환경·안전·편의 정보를 종합 분석해 오늘 우리에게 적합한 바다를 추천합니다.</p>
+      <div class="demo-disclaimer" role="note">
+        <span>ℹ 본 서비스의 데이터는 화면 테스트 및 시뮬레이션용 데모 예시 데이터입니다.</span>
+      </div>
+    </header>
+
+    <!-- 검색창 & 빠른 필터 섹션 -->
+    <section class="home-search-bar" aria-label="장소 검색 및 필터">
+      <div class="search-input-group">
+        <label for="home-search-input" class="visually-hidden" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0);">장소명 또는 지역 검색</label>
+        <input type="search" id="home-search-input" class="search-input" placeholder="장소명(예: 구조라, 판포) 또는 지역명(거제, 제주, 강원)을 검색하세요" autocomplete="off">
+        <button type="button" id="home-search-clear" class="btn-clear" aria-label="검색어 지우기">✕</button>
+        <button type="button" id="home-search-btn" class="button button--primary">검색</button>
+      </div>
+
+      <div class="filters-wrapper">
+        <div class="filters-row" role="group" aria-label="빠른 조건 필터">
+          <button type="button" class="filter-chip" data-filter="beginner" aria-pressed="false">초보자 추천</button>
+          <button type="button" class="filter-chip" data-filter="available" aria-pressed="false">입수 가능</button>
+          <button type="button" class="filter-chip" data-filter="safety" aria-pressed="false">안전요원</button>
+          <button type="button" class="filter-chip" data-filter="parking" aria-pressed="false">주차 가능</button>
+          <button type="button" class="filter-chip" data-filter="shower" aria-pressed="false">샤워장</button>
+          <button type="button" class="filter-chip" data-filter="rental" aria-pressed="false">장비 대여</button>
+          <button type="button" class="filter-chip" data-filter="cctv" aria-pressed="false">CCTV 제공</button>
+          <button type="button" id="home-filter-reset" class="btn-reset-filter">필터 초기화</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 추천 장소 카드 목록 영역 -->
+    <section aria-label="장소 목록">
+      <div class="results-meta">
+        <span id="home-result-count" class="results-meta__count">검색 결과 계산 중...</span>
+        <span class="status-badge status-badge--analysis">바다앞에 실시간 분석 기준</span>
+      </div>
+
+      <!-- 카드 그리드 (app.js 렌더링) -->
+      <div id="home-places-grid" class="places-grid"></div>
+
+      <!-- 검색 결과 없을 때 Empty State -->
+      <div id="home-empty-state" class="empty-state" style="display: none;">
+        <div class="empty-state__icon">🔍</div>
+        <p class="empty-state__text">조건에 맞는 장소를 찾지 못했어요. 검색어나 필터를 변경해보세요.</p>
+        <button type="button" class="button button--secondary" onclick="document.getElementById('home-filter-reset').click()">검색 조건 초기화</button>
+      </div>
+    </section>
+
+    <!-- 상태가 좋지 않을 때의 대안 장소 섹션 -->
+    <section id="home-alt-section" class="alt-places-section">
+      <h2 class="alt-places-section__title">💡 기상·파고 영향 시 안심 플랜B 대안 장소</h2>
+      <p class="alt-places-section__desc">방문 예정지의 파도가 높거나 통제될 경우 바로 이동할 수 있는 잔잔한 내해·완만 수심 대안 장소입니다.</p>
+      <div id="home-alt-grid" class="places-grid"></div>
+    </section>
+  </main>
+
+  <!-- 모바일 하단 고정 내비게이션 -->
+  <nav class="mobile-nav" aria-label="모바일 하단 메뉴">
+    <ul class="mobile-nav__list">
+      <li class="mobile-nav__item">
+        <a href="index.html" class="mobile-nav__link mobile-nav__link--active" aria-current="page">
+          <span class="mobile-nav__icon">🏠</span>
+          <span>홈</span>
+        </a>
+      </li>
+      <li class="mobile-nav__item">
+        <a href="map.html" class="mobile-nav__link">
+          <span class="mobile-nav__icon">🗺️</span>
+          <span>지도</span>
+        </a>
+      </li>
+      <li class="mobile-nav__item">
+        <a href="saved.html" class="mobile-nav__link">
+          <span class="mobile-nav__icon">⚖️</span>
+          <span>저장·비교</span>
+        </a>
+      </li>
+      <li class="mobile-nav__item">
+        <a href="field.html" class="mobile-nav__link">
+          <span class="mobile-nav__icon">📡</span>
+          <span>현장</span>
+        </a>
+      </li>
+      <li class="mobile-nav__item">
+        <a href="my.html" class="mobile-nav__link">
+          <span class="mobile-nav__icon">👤</span>
+          <span>MY</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- 공통 푸터 -->
+  <footer class="site-footer">
+    <div class="site-footer__container">
+      <div>
+        <strong>바다앞에</strong>
+        <p class="site-footer__disclaimer">화면에 표시된 장소·상태 데이터는 웹 서비스 테스트용 예시 데이터이며 실제 방문 전 공식 안내를 확인해야 합니다.</p>
+      </div>
+      <p>© 2026 바다앞에. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- 스크립트 연결 (data.js -> app.js 순서) -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

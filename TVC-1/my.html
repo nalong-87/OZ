@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>바다앞에 | MY - 사용자 선호 조건 및 알림 관리</title>
+  <meta name="description" content="동행자 맞춤 선호 조건, 알림 설정 및 저장 기록을 관리하세요.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- 본문 바로가기 -->
+  <a href="#main-content" class="skip-link">본문 바로가기</a>
+
+  <!-- 상단 헤더 & PC 네비게이션 -->
+  <header class="site-header">
+    <div class="site-header__container">
+      <a href="index.html" class="site-header__brand" aria-label="바다앞에 홈">
+        <span class="site-header__symbol" aria-hidden="true">
+          <svg viewBox="0 0 28 20" fill="none" class="site-header__svg">
+            <path d="M2 14C5.5 14 7.5 10 11 10C14.5 10 16.5 14 20 14C23.5 14 24.5 12 26 10" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
+            <path d="M2 6C5.5 6 7.5 2 11 2C14.5 2 16.5 6 20 6C23.5 6 24.5 4 26 2" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="site-header__title">바다앞에</span>
+        <span class="site-header__tagline">오늘 갈 수 있는 바다를 한눈에</span>
+      </a>
+
+      <!-- PC/태블릿 상단 메뉴 -->
+      <nav class="site-nav" aria-label="주요 메뉴">
+        <ul class="site-nav__list">
+          <li class="site-nav__item"><a href="index.html" class="site-nav__link">홈</a></li>
+          <li class="site-nav__item"><a href="map.html" class="site-nav__link">지도</a></li>
+          <li class="site-nav__item"><a href="saved.html" class="site-nav__link">저장·비교</a></li>
+          <li class="site-nav__item"><a href="field.html" class="site-nav__link">현장</a></li>
+          <li class="site-nav__item"><a href="my.html" class="site-nav__link site-nav__link--active" aria-current="page">MY</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 메인 콘텐츠 영역 -->
+  <main id="main-content" class="main-wrapper">
+    <header class="page-header">
+      <span class="page-header__eyebrow">MY SETTINGS &amp; LOGS</span>
+      <h1 class="page-header__title">내 조건 및 활동 설정</h1>
+      <p class="page-header__desc">초보 동행자 보호 조건과 기상 특보 알림 설정을 관리하고 최근 확인한 바다를 둘러보세요.</p>
+    </header>
+
+    <!-- 1. 프로필 요약 카드 -->
+    <article class="my-profile-card">
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <div style="width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, var(--color-primary-light) 0%, #BAE6FD 100%); display: flex; align-items: center; justify-content: center; font-weight: 800; color: var(--color-primary-dark); font-size: 1.125rem;">
+          KB
+        </div>
+        <div>
+          <h2 style="font-size: 1.25rem; font-weight: 800; color: var(--color-text);">김바다</h2>
+          <p style="font-size: 0.875rem; color: var(--color-text-muted);">스노클링 초보자 · 연인과 함께 · 선호 지역: 남해·제주</p>
+        </div>
+      </div>
+
+      <div class="my-stats-grid">
+        <div class="my-stat-box">
+          <span class="my-stat-box__label">저장한 바다</span>
+          <strong id="my-saved-count" class="my-stat-box__val">0개</strong>
+        </div>
+        <div class="my-stat-box">
+          <span class="my-stat-box__label">비교 중 바다</span>
+          <strong id="my-compare-count" class="my-stat-box__val">0개</strong>
+        </div>
+        <div class="my-stat-box">
+          <span class="my-stat-box__label">동행자 모드</span>
+          <strong class="my-stat-box__val" style="font-size: 1rem; color: var(--color-primary-dark);">초보자 동행</strong>
+        </div>
+      </div>
+    </article>
+
+    <!-- 2. 맞춤 추천 선호 조건 설정 폼 -->
+    <section class="settings-group" aria-label="선호 조건 설정">
+      <h2 class="settings-group__title">방문 장소 선호 조건</h2>
+      <p style="font-size: 0.875rem; color: var(--color-text-muted); margin-bottom: 16px;">설정한 조건은 검색 시 기본 필터 및 비교 알고리즘 추천 점수에 반영됩니다.</p>
+      <form id="my-preferences-form" class="settings-list">
+        <label class="setting-checkbox-item">
+          <span>초보자에게 적합한 완만 수심 장소 우선</span>
+          <input type="checkbox" name="beginnerFriendly" checked>
+        </label>
+        <label class="setting-checkbox-item">
+          <span>인명구조 안전요원 배치 장소 필수</span>
+          <input type="checkbox" name="safetyPersonnel" checked>
+        </label>
+        <label class="setting-checkbox-item">
+          <span>주차 공간 확보된 장소만</span>
+          <input type="checkbox" name="parking" checked>
+        </label>
+        <label class="setting-checkbox-item">
+          <span>샤워장(온수) 완비 장소 필요</span>
+          <input type="checkbox" name="shower" checked>
+        </label>
+        <label class="setting-checkbox-item">
+          <span>장비 대여소 운영 장소 선호</span>
+          <input type="checkbox" name="rental">
+        </label>
+        <label class="setting-checkbox-item">
+          <span>CCTV 영상 제공 장소 선호</span>
+          <input type="checkbox" name="cctv" checked>
+        </label>
+      </form>
+    </section>
+
+    <!-- 3. 알림 수신 설정 폼 -->
+    <section class="settings-group" aria-label="알림 설정">
+      <h2 class="settings-group__title">바다 상태 변동 알림</h2>
+      <p style="font-size: 0.875rem; color: var(--color-text-muted); margin-bottom: 16px;">실제 푸시 대신 방문 시점 및 시뮬레이션 알림 규칙으로 저장됩니다.</p>
+      <form id="my-notifications-form" class="settings-list">
+        <label class="setting-checkbox-item">
+          <span>저장한 장소의 입수 상태 변동 알림</span>
+          <input type="checkbox" name="statusChange" checked>
+        </label>
+        <label class="setting-checkbox-item">
+          <span>해경/지자체 공식 입수 통제 공고 발생 시 알림</span>
+          <input type="checkbox" name="controlAlert" checked>
+        </label>
+        <label class="setting-checkbox-item">
+          <span>방문 예정일 기상 특보(풍랑주의보 등) 발효 시 알림</span>
+          <input type="checkbox" name="weatherWarning" checked>
+        </label>
+        <label class="setting-checkbox-item">
+          <span>출발 당일 아침 상태 재확인 리마인더</span>
+          <input type="checkbox" name="recheckReminder" checked>
+        </label>
+      </form>
+    </section>
+
+    <!-- 4. 최근 확인한 장소 기록 및 데이터 초기화 -->
+    <section class="settings-group" aria-label="최근 활동 기록 및 초기화">
+      <h2 class="settings-group__title">최근 확인한 바다 장소</h2>
+      <ul id="my-recent-list" class="recent-list" style="margin-bottom: 24px;">
+        <!-- app.js에서 렌더링 -->
+      </ul>
+
+      <div style="padding-top: 16px; border-top: 1px solid var(--color-border); display: flex; justify-content: space-between; align-items: center;">
+        <div>
+          <strong style="font-size: 0.9375rem; color: var(--color-text);">모든 저장 데이터 초기화</strong>
+          <p style="font-size: 0.8125rem; color: var(--color-text-muted);">저장한 장소, 비교 목록, 선호 조건, 등록 제보 기록을 모두 삭제합니다.</p>
+        </div>
+        <button type="button" id="my-clear-all-btn" class="button" style="background-color: #FEE2E2; color: #DC2626; border-color: #FCA5A5;">데이터 초기화</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- 모바일 하단 고정 내비게이션 -->
+  <nav class="mobile-nav" aria-label="모바일 하단 메뉴">
+    <ul class="mobile-nav__list">
+      <li class="mobile-nav__item">
+        <a href="index.html" class="mobile-nav__link">
+          <span class="mobile-nav__icon">🏠</span>
+          <span>홈</span>
+        </a>
+      </li>
+      <li class="mobile-nav__item">
+        <a href="map.html" class="mobile-nav__link">
+          <span class="mobile-nav__icon">🗺️</span>
+          <span>지도</span>
+        </a>
+      </li>
+      <li class="mobile-nav__item">
+        <a href="saved.html" class="mobile-nav__link">
+          <span class="mobile-nav__icon">⚖️</span>
+          <span>저장·비교</span>
+        </a>
+      </li>
+      <li class="mobile-nav__item">
+        <a href="field.html" class="mobile-nav__link">
+          <span class="mobile-nav__icon">📡</span>
+          <span>현장</span>
+        </a>
+      </li>
+      <li class="mobile-nav__item">
+        <a href="my.html" class="mobile-nav__link mobile-nav__link--active" aria-current="page">
+          <span class="mobile-nav__icon">👤</span>
+          <span>MY</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- 공통 푸터 -->
+  <footer class="site-footer">
+    <div class="site-footer__container">
+      <div>
+        <strong>바다앞에</strong>
+        <p class="site-footer__disclaimer">화면에 표시된 장소·상태 데이터는 웹 서비스 테스트용 예시 데이터이며 실제 방문 전 공식 안내를 확인해야 합니다.</p>
+      </div>
+      <p>© 2026 바다앞에. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- 스크립트 연결 -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>바다앞에 | 현장 - CCTV 및 최신 현장 제보</title>
+  <meta name="description" content="선택한 해수욕장의 모니터링 CCTV 상태, 행정 공식 통제 현황, 방문자 실시간 제보를 확인하세요.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- 본문 바로가기 -->
+  <a href="#main-content" class="skip-link">본문 바로가기</a>
+
+  <!-- 상단 헤더 & PC 네비게이션 -->
+  <header class="site-header">
+    <div class="site-header__container">
+      <a href="index.html" class="site-header__brand" aria-label="바다앞에 홈">
+        <span class="site-header__symbol" aria-hidden="true">
+          <svg viewBox="0 0 28 20" fill="none" class="site-header__svg">
+            <path d="M2 14C5.5 14 7.5 10 11 10C14.5 10 16.5 14 20 14C23.5 14 24.5 12 26 10" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
+            <path d="M2 6C5.5 6 7.5 2 11 2C14.5 2 16.5 6 20 6C23.5 6 24.5 4 26 2" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="site-header__title">바다앞에</span>
+        <span class="site-header__tagline">오늘 갈 수 있는 바다를 한눈에</span>
+      </a>
+
+      <!-- PC/태블릿 상단 메뉴 -->
+      <nav class="site-nav" aria-label="주요 메뉴">
+        <ul class="site-nav__list">
+          <li class="site-nav__item"><a href="index.html" class="site-nav__link">홈</a></li>
+          <li class="site-nav__item"><a href="map.html" class="site-nav__link">지도</a></li>
+          <li class="site-nav__item"><a href="saved.html" class="site-nav__link">저장·비교</a></li>
+          <li class="site-nav__item"><a href="field.html" class="site-nav__link site-nav__link--active" aria-current="page">현장</a></li>
+          <li class="site-nav__item"><a href="my.html" class="site-nav__link">MY</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 메인 콘텐츠 영역 -->
+  <main id="main-content" class="main-wrapper">
+    <header class="page-header">
+      <span class="page-header__eyebrow">FIELD LIVE MONITORING</span>
+      <h1 class="page-header__title">현장 실시간 상태 및 제보</h1>
+      <p class="page-header__desc">모니터링 CCTV 영상 상태, 지자체 공식 통제 공고, 방문자 체감 제보를 확인하세요.</p>
+    </header>
+
+    <!-- 장소 선택 드롭다운 및 새로고침 바 -->
+    <section class="field-selector-bar" aria-label="모니터링 장소 선택">
+      <div class="field-select-group">
+        <label for="field-place-select" style="font-weight: 700;">확인할 장소:</label>
+        <select id="field-place-select" class="field-select">
+          <!-- app.js에서 8개 장소 옵션 생성 -->
+        </select>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <span id="field-refresh-time" style="font-size: 0.8125rem; color: var(--color-text-muted);">확인 시각 갱신 중...</span>
+        <button type="button" id="field-refresh-btn" class="button button--secondary">정보 새로 확인 ⟳</button>
+      </div>
+    </section>
+
+    <!-- CCTV 모니터링 영역 -->
+    <section class="cctv-section" aria-label="해안 CCTV 모니터링">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+        <h2 style="font-size: 1.125rem; font-weight: 800;">해안 안전 모니터링 CCTV</h2>
+        <span id="field-cctv-status" class="cctv-badge cctv-badge--live">● LIVE 실시간 수신 중</span>
+      </div>
+
+      <!-- 모니터링 화면 플레이스홀더 (app.js 렌더링) -->
+      <div id="field-cctv-screen" class="cctv-screen"></div>
+
+      <p style="font-size: 0.8125rem; color: var(--color-text-muted); margin-bottom: 24px;">
+        ※ <strong>CCTV 안내:</strong> CCTV 영상은 현장 혼잡도 및 파도 상황을 보조적으로 파악하는 참고 자료이며, 입수 가능 여부를 단독 확정하지 않습니다.
+      </p>
+    </section>
+
+    <!-- 공식 행정 통제 및 요원 배치 현황 -->
+    <section class="official-section" aria-label="지자체 공식 공고 상태">
+      <h2 style="font-size: 1.125rem; font-weight: 800; margin-bottom: 12px;">지자체·해경 공식 고시 상태</h2>
+      <div id="field-official-box">
+        <!-- app.js 렌더링 -->
+      </div>
+    </section>
+
+    <!-- 방문자 현장 제보 영역 -->
+    <section class="report-section" aria-label="방문자 현장 제보">
+      <h2 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 6px;">실시간 방문자 제보</h2>
+      <p style="font-size: 0.875rem; color: var(--color-text-muted); margin-bottom: 18px;">
+        현장에 계신가요? 파도 체감, 온수 샤워실 이용 상태, 주차 혼잡도를 이웃 여행자에게 공유해 주세요.
+      </p>
+
+      <!-- 제보 입력 폼 (XSS 방지 및 검증) -->
+      <form id="field-report-form" class="report-form">
+        <div class="report-form__row">
+          <label for="field-report-type" class="visually-hidden" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0);">제보 유형 선택</label>
+          <select id="field-report-type" class="select-control" style="min-width: 140px;">
+            <option value="wave">파도 체감</option>
+            <option value="parking">주차 혼잡</option>
+            <option value="facility">편의시설</option>
+            <option value="water">수온/시야</option>
+            <option value="safety">안전 상황</option>
+          </select>
+
+          <label for="field-report-text" class="visually-hidden" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0);">제보 내용</label>
+          <input type="text" id="field-report-text" class="report-input" placeholder="현장 상황을 짧게 작성해주세요 (예: 샤워장 줄 길지 않아요)" autocomplete="off">
+
+          <button type="submit" class="button button--primary" style="white-space: nowrap;">제보 등록</button>
+        </div>
+      </form>
+
+      <!-- 제보 목록 -->
+      <ul id="field-report-list" class="report-list" aria-live="polite">
+        <!-- app.js에서 렌더링 -->
+      </ul>
+    </section>
+  </main>
+
+  <!-- 모바일 하단 고정 내비게이션 -->
+  <nav class="mobile-nav" aria-label="모바일 하단 메뉴">
+    <ul class="mobile-nav__list">
+      <li class="mobile-nav__item">
+        <a href="index.html" class="mobile-nav__link">
+          <span class="mobile-nav__icon">🏠</span>
+          <span>홈</span>
+        </a>
+      </li>
+      <li class="mobile-nav__item">
+        <a href="map.html" class="mobile-nav__link">
+          <span class="mobile-nav__icon">🗺️</span>
+          <span>지도</span>
+        </a>
+      </li>
+      <li class="mobile-nav__item">
+        <a href="saved.html" class="mobile-nav__link">
+          <span class="mobile-nav__icon">⚖️</span>
+          <span>저장·비교</span>
+        </a>
+      </li>
+      <li class="mobile-nav__item">
+        <a href="field.html" class="mobile-nav__link mobile-nav__link--active" aria-current="page">
+          <span class="mobile-nav__icon">📡</span>
+          <span>현장</span>
+        </a>
+      </li>
+      <li class="mobile-nav__item">
+        <a href="my.html" class="mobile-nav__link">
+          <span class="mobile-nav__icon">👤</span>
+          <span>MY</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- 공통 푸터 -->
+  <footer class="site-footer">
+    <div class="site-footer__container">
+      <div>
+        <strong>바다앞에</strong>
+        <p class="site-footer__disclaimer">화면에 표시된 장소·상태 데이터는 웹 서비스 테스트용 예시 데이터이며 실제 방문 전 공식 안내를 확인해야 합니다.</p>
+      </div>
+      <p>© 2026 바다앞에. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- 스크립트 연결 -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

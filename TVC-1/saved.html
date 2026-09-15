@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>바다앞에 | 저장·비교 - 후보 장소 다각도 비교</title>
+  <meta name="description" content="저장한 관심 바다 장소를 확인하고 최대 3개 장소를 나란히 비교하여 최적의 방문 추천 결과를 확인하세요.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- 본문 바로가기 -->
+  <a href="#main-content" class="skip-link">본문 바로가기</a>
+
+  <!-- 상단 헤더 & PC 네비게이션 -->
+  <header class="site-header">
+    <div class="site-header__container">
+      <a href="index.html" class="site-header__brand" aria-label="바다앞에 홈">
+        <span class="site-header__symbol" aria-hidden="true">
+          <svg viewBox="0 0 28 20" fill="none" class="site-header__svg">
+            <path d="M2 14C5.5 14 7.5 10 11 10C14.5 10 16.5 14 20 14C23.5 14 24.5 12 26 10" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
+            <path d="M2 6C5.5 6 7.5 2 11 2C14.5 2 16.5 6 20 6C23.5 6 24.5 4 26 2" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="site-header__title">바다앞에</span>
+        <span class="site-header__tagline">오늘 갈 수 있는 바다를 한눈에</span>
+      </a>
+
+      <!-- PC/태블릿 상단 메뉴 -->
+      <nav class="site-nav" aria-label="주요 메뉴">
+        <ul class="site-nav__list">
+          <li class="site-nav__item"><a href="index.html" class="site-nav__link">홈</a></li>
+          <li class="site-nav__item"><a href="map.html" class="site-nav__link">지도</a></li>
+          <li class="site-nav__item"><a href="saved.html" class="site-nav__link site-nav__link--active" aria-current="page">저장·비교</a></li>
+          <li class="site-nav__item"><a href="field.html" class="site-nav__link">현장</a></li>
+          <li class="site-nav__item"><a href="my.html" class="site-nav__link">MY</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 메인 콘텐츠 영역 -->
+  <main id="main-content" class="main-wrapper">
+    <header class="page-header">
+      <span class="page-header__eyebrow">SAVED &amp; COMPARE</span>
+      <h1 class="page-header__title">후보 장소 저장 및 비교</h1>
+      <p class="page-header__desc">관심 장소를 모아보고, 최대 3개 장소의 안전·편의·수심 조건을 한눈에 대조하세요.</p>
+      <div class="demo-disclaimer" role="note">
+        <span>ℹ 저장 및 비교 목록은 브라우저 LocalStorage에 안전하게 저장됩니다.</span>
+      </div>
+    </header>
+
+    <!-- 1. 비교 섹션 (최대 3개) -->
+    <section class="section-block" aria-label="장소 다각도 비교표">
+      <div class="section-block__head">
+        <h2 class="section-block__title">장소 조건 비교표</h2>
+        <span id="compare-count-badge" class="status-badge status-badge--analysis">0 / 3</span>
+      </div>
+
+      <!-- 비교표 래퍼 (가로 스크롤 지원) -->
+      <div id="compare-table-wrapper" class="compare-table-wrapper">
+        <!-- app.js에서 렌더링 -->
+      </div>
+
+      <!-- 비교 목록 Empty State -->
+      <div id="compare-empty-state" class="empty-state" style="display: none;">
+        <div class="empty-state__icon">⚖️</div>
+        <p class="empty-state__text">현재 비교 중인 장소가 없습니다. 아래 저장 목록이나 홈·지도에서 [+ 비교] 버튼을 눌러보세요.</p>
+        <a href="map.html" class="button button--secondary">지도에서 장소 찾아보기</a>
+      </div>
+
+      <!-- 스마트 추천 알고리즘 결과 카드 -->
+      <div id="compare-recommendation" class="compare-recommendation" style="display: none; margin-top: 24px;">
+        <!-- app.js에서 동적 추천 계산 결과 렌더링 -->
+      </div>
+    </section>
+
+    <!-- 2. 저장한 장소 목록 섹션 -->
+    <section class="section-block" aria-label="저장한 장소 목록">
+      <div class="section-block__head">
+        <h2 class="section-block__title">내가 저장한 바다</h2>
+      </div>
+
+      <!-- 저장 카드 그리드 -->
+      <div id="saved-places-grid" class="places-grid"></div>
+
+      <!-- 저장 목록 Empty State -->
+      <div id="saved-empty-state" class="empty-state" style="display: none;">
+        <div class="empty-state__icon">⭐</div>
+        <p class="empty-state__text">아직 저장한 바다 장소가 없습니다. 마음에 드는 바다를 저장하고 비교해보세요.</p>
+        <a href="map.html" class="button button--primary">장소 찾아보기</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- 모바일 하단 고정 내비게이션 -->
+  <nav class="mobile-nav" aria-label="모바일 하단 메뉴">
+    <ul class="mobile-nav__list">
+      <li class="mobile-nav__item">
+        <a href="index.html" class="mobile-nav__link">
+          <span class="mobile-nav__icon">🏠</span>
+          <span>홈</span>
+        </a>
+      </li>
+      <li class="mobile-nav__item">
+        <a href="map.html" class="mobile-nav__link">
+          <span class="mobile-nav__icon">🗺️</span>
+          <span>지도</span>
+        </a>
+      </li>
+      <li class="mobile-nav__item">
+        <a href="saved.html" class="mobile-nav__link mobile-nav__link--active" aria-current="page">
+          <span class="mobile-nav__icon">⚖️</span>
+          <span>저장·비교</span>
+        </a>
+      </li>
+      <li class="mobile-nav__item">
+        <a href="field.html" class="mobile-nav__link">
+          <span class="mobile-nav__icon">📡</span>
+          <span>현장</span>
+        </a>
+      </li>
+      <li class="mobile-nav__item">
+        <a href="my.html" class="mobile-nav__link">
+          <span class="mobile-nav__icon">👤</span>
+          <span>MY</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- 공통 푸터 -->
+  <footer class="site-footer">
+    <div class="site-footer__container">
+      <div>
+        <strong>바다앞에</strong>
+        <p class="site-footer__disclaimer">화면에 표시된 장소·상태 데이터는 웹 서비스 테스트용 예시 데이터이며 실제 방문 전 공식 안내를 확인해야 합니다.</p>
+      </div>
+      <p>© 2026 바다앞에. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- 스크립트 연결 -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

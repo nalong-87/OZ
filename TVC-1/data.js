@@ -1,0 +1,365 @@
+/**
+ * 바다앞에 (Badaape) - 공통 장소 샘플 데이터 (data.js)
+ * 외부 API 연동 없이 동작하는 로컬 데모/예시 데이터셋입니다.
+ */
+
+window.BADA_DATA = {
+  // 최소 8개 장소 샘플 데이터
+  places: [
+    {
+      id: "gujora",
+      name: "구조라 해수욕장",
+      region: "경남 거제",
+      type: "both", // beach, snorkeling, both
+      typeName: "해수욕장 · 스노클링",
+      operatingStatus: "open", // open, closed, preparation, restricted
+      operatingStatusLabel: "개장 중",
+      entryStatus: "warning", // available, warning, restricted, check
+      entryStatusLabel: "주의 필요",
+      environmentStatus: "caution",
+      beginnerLevel: "easy",
+      beginnerLevelLabel: "초보자 적합",
+      weather: "맑음",
+      waveHeight: 0.6,
+      waterTemperature: 24,
+      tide: "만조 16:20",
+      current: "보통",
+      safetyPersonnel: true,
+      cctvAvailable: true,
+      cctvStatus: "live", // live, recent, delayed, unavailable
+      facilities: {
+        parking: true,
+        restroom: true,
+        shower: true,
+        rental: true
+      },
+      sourceType: "official",
+      sourceName: "거제시 공식 고시",
+      updatedAt: "2026-09-15 14:20",
+      distance: 12, // km
+      mapCoord: { x: 74, y: 76 }, // 데모 지도 퍼센트 좌표 (left: 74%, top: 76%)
+      description: "백사장이 곱고 수심이 완만해 가족 및 초보 동행자와 방문하기 좋은 거제 대표 해변입니다.",
+      notice: "오후 조류 유속이 소폭 증가하므로 부표 안전선 안쪽에서만 입수하세요."
+    },
+    {
+      id: "jangho",
+      name: "장호항",
+      region: "강원 삼척",
+      type: "snorkeling",
+      typeName: "스노클링 명소",
+      operatingStatus: "open",
+      operatingStatusLabel: "운영 중",
+      entryStatus: "available",
+      entryStatusLabel: "이용 가능",
+      environmentStatus: "good",
+      beginnerLevel: "moderate",
+      beginnerLevelLabel: "동행자 지도 권장",
+      weather: "맑음",
+      waveHeight: 0.4,
+      waterTemperature: 22,
+      tide: "간조 12:10",
+      current: "약함",
+      safetyPersonnel: true,
+      cctvAvailable: true,
+      cctvStatus: "live",
+      facilities: {
+        parking: true,
+        restroom: true,
+        shower: true,
+        rental: true
+      },
+      sourceType: "official",
+      sourceName: "삼척시 해양관광과",
+      updatedAt: "2026-09-15 14:15",
+      distance: 38,
+      mapCoord: { x: 82, y: 32 },
+      description: "‘한국의 나폴리’로 불리는 투명한 암초 지대로 다채로운 수중 생물 관찰이 가능합니다.",
+      notice: "암초 바위가 많으므로 아쿠아슈즈와 구명조끼를 반드시 착용하세요."
+    },
+    {
+      id: "panpo",
+      name: "판포포구",
+      region: "제주 제주시",
+      type: "snorkeling",
+      typeName: "포구 스노클링",
+      operatingStatus: "open",
+      operatingStatusLabel: "상시 개방",
+      entryStatus: "available",
+      entryStatusLabel: "이용 가능",
+      environmentStatus: "good",
+      beginnerLevel: "easy",
+      beginnerLevelLabel: "초보자 적합",
+      weather: "구름 조금",
+      waveHeight: 0.3,
+      waterTemperature: 25,
+      tide: "만조 15:40",
+      current: "매우 약함",
+      safetyPersonnel: true,
+      cctvAvailable: true,
+      cctvStatus: "live",
+      facilities: {
+        parking: false,
+        restroom: true,
+        shower: true,
+        rental: true
+      },
+      sourceType: "official",
+      sourceName: "한경면사무소 안내",
+      updatedAt: "2026-09-15 14:10",
+      distance: 64,
+      mapCoord: { x: 26, y: 88 },
+      description: "방파제로 둘러싸여 천연 수영장처럼 파도가 잔잔하며 에메랄드빛 수면을 자랑합니다.",
+      notice: "포구 주변 주차공간이 협소하므로 도보 5분 거리 공영주차장을 권장합니다."
+    },
+    {
+      id: "songjeong",
+      name: "송정 해수욕장",
+      region: "부산 해운대",
+      type: "beach",
+      typeName: "해수욕장 · 서핑",
+      operatingStatus: "open",
+      operatingStatusLabel: "개장 중",
+      entryStatus: "warning",
+      entryStatusLabel: "주의 필요",
+      environmentStatus: "caution",
+      beginnerLevel: "moderate",
+      beginnerLevelLabel: "보통 난이도",
+      weather: "맑음",
+      waveHeight: 0.9,
+      waterTemperature: 23.5,
+      tide: "만조 17:10",
+      current: "보통",
+      safetyPersonnel: true,
+      cctvAvailable: true,
+      cctvStatus: "live",
+      facilities: {
+        parking: true,
+        restroom: true,
+        shower: true,
+        rental: true
+      },
+      sourceType: "official",
+      sourceName: "부산 해운대구 시설공단",
+      updatedAt: "2026-09-15 14:05",
+      distance: 24,
+      mapCoord: { x: 80, y: 72 },
+      description: "수심이 완만하고 넓은 백사장을 갖추고 있으며 서핑 구역과 일반 해수욕 구역이 구분되어 있습니다.",
+      notice: "서핑 레저 구역과 일반 물놀이 구역의 경계 부표를 확인하고 진입하세요."
+    },
+    {
+      id: "namildae",
+      name: "남일대 해수욕장",
+      region: "경남 사천",
+      type: "beach",
+      typeName: "해수욕장",
+      operatingStatus: "open",
+      operatingStatusLabel: "개장 중",
+      entryStatus: "available",
+      entryStatusLabel: "이용 가능",
+      environmentStatus: "good",
+      beginnerLevel: "easy",
+      beginnerLevelLabel: "초보자 적합",
+      weather: "맑음",
+      waveHeight: 0.3,
+      waterTemperature: 24,
+      tide: "간조 13:50",
+      current: "약함",
+      safetyPersonnel: true,
+      cctvAvailable: false,
+      cctvStatus: "unavailable",
+      facilities: {
+        parking: true,
+        restroom: true,
+        shower: true,
+        rental: false
+      },
+      sourceType: "official",
+      sourceName: "사천시 공식 안내",
+      updatedAt: "2026-09-15 13:50",
+      distance: 18,
+      mapCoord: { x: 62, y: 74 },
+      description: "코끼리 바위 절경과 반달형 백사장이 아담하여 한적하게 물놀이를 즐기기 좋습니다.",
+      notice: "개인 스노클링 장비 대여소가 없으므로 개별 지참을 권장합니다."
+    },
+    {
+      id: "woljeongri",
+      name: "월정리 해변",
+      region: "제주 구좌",
+      type: "both",
+      typeName: "해변 · 스노클링",
+      operatingStatus: "open",
+      operatingStatusLabel: "상시 개방",
+      entryStatus: "warning",
+      entryStatusLabel: "주의 필요",
+      environmentStatus: "caution",
+      beginnerLevel: "moderate",
+      beginnerLevelLabel: "주의 관찰",
+      weather: "구름 많음",
+      waveHeight: 1.1,
+      waterTemperature: 23,
+      tide: "만조 15:55",
+      current: "조류 강함",
+      safetyPersonnel: false,
+      cctvAvailable: true,
+      cctvStatus: "recent",
+      facilities: {
+        parking: true,
+        restroom: true,
+        shower: true,
+        rental: true
+      },
+      sourceType: "official",
+      sourceName: "구좌읍 주민자치센터",
+      updatedAt: "2026-09-15 13:30",
+      distance: 72,
+      mapCoord: { x: 38, y: 84 },
+      description: "풍력발전기와 하얀 모래사장, 카페거리가 어우러진 동부 해변으로 조류 흐름을 체크해야 합니다.",
+      notice: "지정 해수욕장이 아니므로 인명구조요원이 상주하지 않아 개인 안전에 각별히 유의해야 합니다."
+    },
+    {
+      id: "hyeopjae",
+      name: "협재 해수욕장",
+      region: "제주 한림",
+      type: "both",
+      typeName: "해수욕장 · 스노클링",
+      operatingStatus: "open",
+      operatingStatusLabel: "개장 중",
+      entryStatus: "available",
+      entryStatusLabel: "이용 가능",
+      environmentStatus: "good",
+      beginnerLevel: "easy",
+      beginnerLevelLabel: "초보자 적합",
+      weather: "맑음",
+      waveHeight: 0.4,
+      waterTemperature: 24.8,
+      tide: "만조 15:30",
+      current: "약함",
+      safetyPersonnel: true,
+      cctvAvailable: true,
+      cctvStatus: "live",
+      facilities: {
+        parking: true,
+        restroom: true,
+        shower: true,
+        rental: true
+      },
+      sourceType: "official",
+      sourceName: "제주시 관광진흥과",
+      updatedAt: "2026-09-15 14:18",
+      distance: 58,
+      mapCoord: { x: 23, y: 85 },
+      description: "비양도가 정면에 보이는 투명한 은빛 모래밭과 얕은 수심으로 남녀노소 모두에게 최적의 환경입니다.",
+      notice: "만조 시 백사장 면적이 줄어들며, 송림 야영장 방면은 취사가 금지되어 있습니다."
+    },
+    {
+      id: "bongpo",
+      name: "봉포 해수욕장",
+      region: "강원 고성",
+      type: "both",
+      typeName: "해수욕장 · 스노클링",
+      operatingStatus: "restricted",
+      operatingStatusLabel: "입수 통제",
+      entryStatus: "restricted",
+      entryStatusLabel: "이용 제한",
+      environmentStatus: "danger",
+      beginnerLevel: "expert",
+      beginnerLevelLabel: "입수 불가",
+      weather: "비 / 강풍",
+      waveHeight: 2.3,
+      waterTemperature: 19.5,
+      tide: "만조 14:40",
+      current: "너울성 파도 위험",
+      safetyPersonnel: true,
+      cctvAvailable: true,
+      cctvStatus: "delayed",
+      facilities: {
+        parking: true,
+        restroom: true,
+        shower: true,
+        rental: false
+      },
+      sourceType: "official",
+      sourceName: "고성군 재난안전대책본부",
+      updatedAt: "2026-09-15 13:10",
+      distance: 92,
+      mapCoord: { x: 78, y: 22 },
+      description: "기암괴석과 바위섬 주변으로 맑은 해양 생태계를 자랑하는 고성 해변입니다.",
+      notice: "동해 중부 먼바다 풍랑주의보 여파로 높은 너울성 파도가 유입되어 해경 공식 입수 통제 중입니다."
+    }
+  ],
+
+  // 현장 제보 기본 샘플 데이터
+  initialReports: [
+    {
+      id: "rep-1",
+      placeId: "gujora",
+      type: "wave",
+      typeName: "파도 체감",
+      content: "오전보다 파도가 살짝 높아졌지만 방파제 안쪽은 여전히 아이 데리고 놀기 잔잔합니다.",
+      author: "거제나들이객",
+      time: "방문자 제보 · 25분 전"
+    },
+    {
+      id: "rep-2",
+      placeId: "gujora",
+      type: "facility",
+      typeName: "편의시설",
+      content: "샤워장 온수 잘 나오고 줄 안 길어요. 구명조끼 대여소 5시까지 운영한다고 합니다.",
+      author: "푸른바다",
+      time: "방문자 제보 · 48분 전"
+    },
+    {
+      id: "rep-3",
+      placeId: "gujora",
+      type: "parking",
+      typeName: "주차 혼잡",
+      content: "메인 주차장은 만차라 수협 안쪽 임시주차장 이용하시면 5분 도보로 널널합니다.",
+      author: "스노클러Kim",
+      time: "방문자 제보 · 1시간 전"
+    },
+    {
+      id: "rep-4",
+      placeId: "jangho",
+      type: "water",
+      typeName: "시야/수온",
+      content: "물 진짜 맑아요! 수중 시야 7m 이상 나오고 물고기 떼 엄청 많습니다. 래시가드 입고 안 추워요.",
+      author: "바다요정",
+      time: "방문자 제보 · 32분 전"
+    },
+    {
+      id: "rep-5",
+      placeId: "panpo",
+      type: "parking",
+      typeName: "주차 혼잡",
+      content: "포구 입구 길가 주차 단속 중입니다. 꼭 포구 뒤편 지정 공영주차장 이용하세요.",
+      author: "제주살이3년차",
+      time: "방문자 제보 · 15분 전"
+    },
+    {
+      id: "rep-6",
+      placeId: "bongpo",
+      type: "safety",
+      typeName: "통제 상황",
+      content: "현장 안전요원 분들이 백사장 진입 통제선 치고 계십니다. 오늘은 물놀이 불가합니다!",
+      author: "동해지킴이",
+      time: "방문자 제보 · 40분 전"
+    }
+  ],
+
+  // 기본 사용자 프로필 및 선호 조건
+  defaultPreferences: {
+    beginnerFriendly: true,
+    safetyPersonnel: true,
+    parking: true,
+    shower: true,
+    rental: false,
+    cctv: true
+  },
+
+  defaultNotifications: {
+    statusChange: true,
+    controlAlert: true,
+    weatherWarning: true,
+    recheckReminder: true
+  }
+};
