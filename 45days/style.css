@@ -1,0 +1,490 @@
+/* 모든 요소의 크기 계산 방식을 통일 */
+* {
+    box-sizing: border-box;
+}
+
+/* 페이지 기본 설정 */
+body {
+    margin: 0;
+    background-color: #000000;
+    color: #ffffff;
+
+    font-family: "Pretendard", sans-serif;
+}
+
+/* -----------------------------
+    header
+----------------------------- */
+.header {
+    width: 100%;
+    min-width: 960px;
+    position: fixed;  /* 고정 위치*/
+    top: 0;
+    z-index: 100; /* 수치만 쓰면 된다고함 */
+}
+
+.header_inner {
+    width: 100%;
+    
+    margin: 0 auto; /* 위 아래는 0 인데 좌우는 가운데 */
+    padding: 24px 40px; /* 상하 24px / 좌우 40px */
+
+    display: flex;
+    justify-content: space-between; /* 수평 정렬 */
+    align-items: center; /* 수직 정렬 */
+
+/* 값 1개 = 상하좌우
+2개 = 위아래 / 좌우
+3개 = 위 / 좌우 / 아래
+4개 = 시계방향 위 / 오른쪽 / 아래 / 왼쪽 */
+}
+
+.header_right {
+    display: flex; /* 플렉스 사용 */
+    align-items: center; /* 수직 정렬 */
+    gap: 48px; /* 요소 사이 간격 */
+}
+
+/* 메뉴 목록 */
+.nav ul {
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    align-items: center; /* 수직 정렬 */
+    gap: 48px; /* 요소 사이 간격 */
+
+    list-style: none; /* 목록 점 제거 */
+}
+
+/* 메뉴 링크 */
+.nav ul a {
+    color: #ffffff; /* 텍스트 색상 */
+    text-decoration: none; /* 밑줄 제거 */
+    font-family: 'Anton', sans-serif;
+    font-size: 24px; /* 글자 크기 */
+    font-weight: 400; /* 글자 굵기 */
+    letter-spacing: 1px;
+
+    transition: color 0.3s ease, transform 0.3s ease; /* 색상 변화 시간 */    
+}
+
+.nav ul a:hover {
+    color: #bbff00; /* 마우스 올리면 빨간색으로 */
+    transform: translateY(-2px); /* 살짝 올라감 */
+}
+
+/* 문의하기 버튼 */
+.btn_contact{
+    padding: 12px 32px;
+
+    border: 2px solid #ffffff;
+    border-radius: 999px;
+
+    color:#ffffff;
+    text-decoration: none;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    transition: background-color 0.3s ease;
+}
+.btn_contact:hover{
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* -----------------------------
+    hero
+----------------------------- */
+.hero {
+    min-width: 960px; /* 최소 너비 */
+    min-height: 100vh; /* 최소 높이 */
+
+    padding: 80px 20px 40px; /* 안쪽 여백 */
+
+    display:flex; /* 플렉스 사용 */
+    justify-content: center; /* 가로 중앙 정렬 */
+    align-items: center;     /* 세로 중앙 정렬 */
+}
+
+.hero_img {
+    width: clamp(580px, 50vw, 860px); /* 뷰포트 */
+    height: auto; /* 이미지 비율 유지 */
+
+    object-fit: contain; /* 이미지 비율 유지 */
+
+    /* clamp() 최소 허용값, 최대 허용값을 지정하는 함수 */
+}
+
+/* -----------------------------
+    about
+
+    값 1개 = 상하좌우
+    2개 = 위아래 / 좌우
+    3개 = 위 / 좌우 / 아래
+    4개 = 시계방향 위 / 오른쪽 / 아래 / 왼쪽
+
+----------------------------- */
+
+
+
+.about {
+    padding: 180px 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about_text{
+    max-width: 1100px;
+
+    text-align: center;
+}
+
+.about_text p{
+    margin: 0 0 12px;
+
+    color: #ffffff;
+
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 1.6;
+
+    word-break: keep-all;
+}
+
+.about_text strong{
+    font-weight: 700;
+}
+
+/* 수치 전체 영역 */
+.about_stats{
+    width: 100%;
+    max-width: 1200px;
+
+    margin-top: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 각각의 수치 영역 */
+.about_stat{
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Since Project */
+.about_label{
+    margin-bottom: 20px;
+
+    color: rgba(255, 255, 255, 0.45);
+
+    font-family: 'Anton', sans-serif;
+    font-size: 24px;
+    line-height: 1; /* 글자크기의 1배 */
+}
+
+/* Number */
+.about_number{
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size:  76px;
+    font-weight: 700;
+    line-height: 1;
+
+    text-align: center;
+}
+
+/* 세로선 */
+.about_divider{
+    width: 1px;
+    height: 128px;
+
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* -----------------------------
+    project
+----------------------------- */
+
+.project {
+    padding: 180px 40px; /* 상하 180 / 좌우 40 */
+}
+
+.project_heading {
+    margin-bottom: 64px;
+    text-align: center;
+}
+
+.project_heading h2 {
+    margin: 0;
+    font-family: "Anton", sans-serif;
+    font-size: 72px;
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+.project_heading p {
+    margin: 20px 0 0;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 18px;
+}
+
+/* 프로젝트 목록 */
+
+.project_list {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    /* 위, 아래 여백은 0, 좌우 여백은 auto로 설정하여 가운데 배치 */
+
+    display: flex;
+    flex-direction: column;
+    gap: 24px; /* 각 요소 사이 간격*/
+}
+
+.project_card {
+    min-height: 360px;
+    display: flex;
+    overflow: hidden;
+    background-color: #1b1b1b;
+    border-radius: 12px;
+}
+
+.project_content {
+    width: 50%;
+    padding: 64px 56px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.project_content h3 {
+    margin: 0 0 24px;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.project_content p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 16px;
+    line-height: 1.7;
+    word-break: keep-all;
+}
+
+.project_subtitles {
+    margin-top: 40px;
+}
+
+.project_subtitles h4 {
+    margin: 0 0 16px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.project_tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.project_tags span {
+    padding: 7px 14px;
+    background-color: #3a3a3a;
+    border-radius: 999px;
+    color: #ffffff;
+    font-size: 12px;
+}
+
+.project_image {
+    width: 50%;
+    overflow: hidden;
+}
+
+.project_image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* -----------------------------
+    contact
+----------------------------- */
+
+.contact {
+    position: relative;
+    min-height: 720px;
+    padding: 180px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.contact h2{
+    margin: 0;
+    font-family: "Anton", sans-serif;
+    font-size: 64px;
+    font-weight: 400;
+    line-height: 1.1;
+}
+
+.contact p{
+    max-width: 32px 0 0;
+    font-size: 16px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.btn_portfolio {
+    margin-top: 48px;
+    padding: 18px 36px;
+    border: 2px solid #ffffff;
+    border-radius: 999px;
+    color:#ffffff;
+    font-family: "Anton",sans-serif;
+    font-size: 18px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn_portfolio:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* 스티커 */
+
+.contact_sticker {
+    position: absolute; /* 절대 위치 */
+    width: 110px;
+    height: auto;
+}
+
+.blue {
+    left: 18%;
+    bottom: 100px;
+}
+
+.red {
+    right: 18%;
+    top: 100px;
+}
+
+/* -----------------------------
+    footer
+----------------------------- */
+
+.footer {
+    padding: 56px 40px 24px;
+    background-color: #baff00;
+    color: #000000;
+}
+
+.footer_info h2 {
+    margin: 0 0 20px;
+    font-size: 20px;
+}
+
+.footer_info p {
+    margin: 6px 0;
+    font-size: 13px;
+}
+
+.footer_line{
+    width: 100%;
+    height: 1px;
+    margin: 48px 0 32px;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.footer_bottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer_bottom p {
+    margin: 0;
+    font-size: 12px;
+}
+
+.footer_tags {
+    display: flex;
+    gap: 8px;
+}
+
+.footer_tags span {
+    padding: 8px 14px;
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 11px;
+    border-radius: 999px;
+}
+
+.footer_logo {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-top: 24px;
+}
+
+/* --------------------------------
+   Custom Cursor
+-------------------------------- */
+
+
+/* 커서를 따라다니는 흰색 원 */
+
+.cursor {
+  position: fixed;
+  /* 브라우저 화면을 기준으로 위치함 */
+
+  top: 0;
+  left: 0;
+
+  width: 38px;
+  height: 38px;
+  /* 기본 커서 원의 크기를 지정함 */
+
+  background-color: #ffffff;
+  /* 커서 원을 흰색으로 표시함 */
+
+  border-radius: 50%;
+  /* 정사각형을 원으로 만듦 */
+
+  pointer-events: none;
+  /* 커서 원이 링크나 버튼 클릭을 방해하지 않게 함 */
+
+  transform: translate(-50%, -50%);
+  /* 원의 중심이 실제 마우스 위치에 오도록 조정함 */
+
+  mix-blend-mode: difference;
+  /* 원이 지나가는 부분의 색상을 반전시킴 */
+
+  z-index: 9999;
+
+  transition: width 0.3s ease, height 0.3s ease;
+  /* 링크 위에서 원의 크기가 부드럽게 변하도록 함 */
+}
+
+
+/* 링크나 반응 요소 위에 올라갔을 때 */
+
+.cursor.cursor_active {
+  width: 70px;
+  height: 70px;
+  /* 커서 원을 크게 확대함 */
+}

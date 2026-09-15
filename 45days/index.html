@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>웹사이트 만들기</title>
+
+  <!-- Pretendard 웹폰트 연결 -->
+  <link
+    rel="stylesheet"
+    crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+  >
+
+  <!-- Anton 웹폰트 연결 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- CSS 연결 -->
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+<!-- header 시작 -->
+    <header class="header">
+        <div class="header_inner">
+
+            <!-- 로고 영역 -->
+              <a href="index.html" class="header_logo">
+                <img src="images/logo.svg" alt="로고">
+              </a>
+
+
+             <!-- 오른쪽 영역 -->
+              <div class="header_right">
+                <!-- 주요 메뉴 -->
+                 <nav class="nav" aria-label="주요 메뉴">
+                    <ul class="nav_list">
+                      <li><a href="about.html">ABOUT</a></li>
+                      <li><a href="project.html">PROJECT</a></li>
+                      <li><a href="contact.html">CONTACT</a></li>
+
+                    </ul>
+                 </nav>
+
+
+            <!-- 문의하기 버튼 -->
+              <a href="contact.html" class="btn_contact">문의하기</a>
+           </div>   
+       </div>
+
+    </header>
+<!-- header 끝 -->
+
+<!-- Main 시작 -->
+<main>
+        <!-- Hero 시작 -->
+        <section class="hero">
+            <img class="hero_img" src="images/hero.png" alt="키링 이미지">
+        </section>
+        <!-- Hero 끝 -->
+
+
+<!-- about 시작 -->
+        <section class="about">
+            <div class="about_text">
+                <p>이노컴즈는 비즈니스 성장을 돕는 <strong>IT 전문 기업</strong>으로</p>
+                <p>웹·앱·플랫폼 및 AI 기반 서비스 등 전 산업 분야에서 <strong>실질적 성과</strong>를 도출하며</p>
+                <p>기획부터 운영까지 고객사와 원팀으로 협력하여 <strong>지속 가능한 결과물</strong>을 만들어갑니다.</p>
+            </div>
+            <div class="about_stats">
+                <!-- Since -->
+                 <div class="about_stat">
+                    <span class="about_label">SINCE</span>
+                    <h2 class="about_number">2001</h2>
+                 </div>
+
+                <!-- 가운데 세로 구분선 -->
+                <div class="about_divider"></div>
+
+                <!-- Project -->
+                <div class="about_stat"> 
+                    <span class="about_label">PROJECT</span>
+                    <h2 class="about_number">1000+</h2>
+                </div>
+            </div>
+        </section>
+<!-- about 끝 -->
+
+
+<!-- Project 시작 -->
+         <section class="project">
+
+            <!-- Project 제목 영역-->
+             <div class="project_heading">
+                <h2>Project</h2>
+                <p>우리는 이런 일을 합니다.</p>
+             </div>
+
+             <!-- Project 목록 -->
+              <div class="project_list">
+                <!-- Project 1 -->
+                 <article class="project_card">
+                    <!-- 프로젝트 설명 -->
+                     <div class="project_content">
+                        <h3>Application Development</h3>
+                        <p>웹·앱 및 플랫폼 구축 경험을 토대로 기획부터 운영까지 전 과정을 통합 지원하며 사용자 중심 설계와 안정적인 개발을 통해 실질적인 성과를 만드는 서비스를 제공합니다.</p>
+                        <div class="project_subtitles">
+                            <h4>Techniques</h4>
+                        </div>
+                        <div class="project_tags">
+                            <span>Platform</span>
+                            <span>User Experience</span>
+                            <span>System</span>
+                            <span>Service</span>
+                        </div>
+                     </div>
+
+                     <!-- 프로젝트 이미지 -->
+                      <div class="project_image">
+                        <img src="images/project1.png" alt="프로젝트 1">
+                      </div>
+                 </article>
+
+                <!-- Project 2 -->
+                 <article class="project_card">
+                    <!-- 프로젝트 설명 -->
+                     <div class="project_content">
+                        <h3>AI Transformation</h3>
+                        <p>AI 기술과 데이터 기반 혁신을 통해 기업의 디지털 전환을 지원하며 업무 자동화, 예측 분석, 생성형 AI 등 다양한 솔루션을 통해 운영 효율성과새로운 비즈니스 가치를 제공합니다.</p>
+                        <div class="project_subtitles">
+                            <h4>Techniques</h4>
+                        </div>
+                        <div class="project_tags">
+                            <span>Large Language Model(LLM)</span>
+                            <span>Intelligence</span>
+                            <span>Analysis</span>
+                            <span>Big Data</span>
+                            <span>LAG</span>
+                            <span>Learning</span>
+                            <span>Vision</span>
+                        </div>
+                     </div>
+
+                     <!-- 프로젝트 이미지 -->
+                      <div class="project_image">
+                        <img src="images/project2.png" alt="프로젝트 2">
+                      </div>
+                 </article>
+
+                <!-- Project 3 -->
+                 <article class="project_card">
+                    <!-- 프로젝트 설명 -->
+                     <div class="project_content">
+                        <h3>Enterprise Solutions</h3>
+                        <p>MES 및 생산·공정관리 등 기업 최적화 솔루션을 설계·구축하며 확장성과 안정성을 바탕으로 업무 효율을 극대화하고 지속 가능한 운영 환경을 제공하여 비즈니스 가치를 높입니다.</p>
+                        <div class="project_subtitles">
+                            <h4>Techniques</h4>
+                        </div>
+                        <div class="project_tags">
+                            <span>Data Platform</span>
+                            <span>Dashboard</span>
+                            <span>Automation</span>
+                            <span>Management System</span>
+                            <span>Reporting</span>
+                            <span>Smart Factory</span>
+                        </div>
+                     </div>
+
+                     <!-- 프로젝트 이미지 -->
+                      <div class="project_image">
+                        <img src="images/project3.png" alt="프로젝트 3">
+                      </div>
+                 </article>
+              </div>
+
+         </section>
+
+ <!-- Project 끝 -->
+
+<!-- Contact 시작 -->
+        <section class="contact">
+            <!-- 스티커들 -->
+             <img class="contact_sticker blue" src="images/blue_sticker.svg">
+             <img class="contact_sticker red" src="images/red_sticker.svg">
+
+             <!-- contact_sticker는 공통 클래스 -->
+             <!-- blue, red 클래스는 각각의 위치와 크기를 제어하기 위해 추가된 클래스. 추가 가능 -->
+
+            <!-- 텍스트 -->
+             <h2>ALWAYS INTERESTED IN HEARING<br>ABOUT NEW PROJECTS</h2>
+             <p>이노컴즈는 언제나 즐거운 공간에서 재미있게 기술을 창조하기 위해끊임없이 소통하고 노력합니다.<br>여러분과 함께 새로운 세상을 만들기 위해 항상 이 자리에 있겠습니다.</p>
+
+             <!-- VIEW ALL PORTFOLIO 버튼 -->
+             <a href="portfolio.html" class="btn_portfolio">VIEW ALL PORTFOLIO</a>
+        </section>
+<!-- Contact 끝 -->
+
+
+<!-- footer 시작 -->
+    <footer class="footer">
+        <!-- 회사 정보 -->
+         <div class="footer_info">
+            <h2>Oz KIM</h2>
+            <p><strong>Address.</strong>경기도 용인시 처인구 남부대로1556번길 17</p>
+            <p><strong>Tel.</strong>031-323-4969</p>
+            <p><strong>Email.</strong>service@incomes.net</p>
+         </div>
+
+        <!-- 구분선 -->
+         <div class="footer_line"></div>
+
+        <!-- 저작권과 태그 -->
+         <div class="footer_bottom">
+            <p>© 2026 Oz KIM. All rights reserved.</p>
+            <div class="footer_tags">
+                <span>Product Designer</span>
+                <span>UXUI</span>
+            </div>
+         </div>
+
+        <!-- footer logo -->
+         <img class="footer_logo" src="images/footer_logo.svg" alt="incomes logo">
+    </footer>
+<!-- footer 끝 -->
+
+ </main>
+ <!-- Main 끝 -->
+
+<!-- 커스텀 커서 -->
+<div class="cursor"></div>
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
